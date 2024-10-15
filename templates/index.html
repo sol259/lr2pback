@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>pr2</title>
+</head>
+<body>
+    <div>
+        <h1>Your IP Address: </h1>
+        <p id="user_ip">{{ user_ip }}</p>
+    </div>
+    <script>
+
+        fetch('https://lr2.onrender.com/get-ip')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('user_ip').textContent = data.ip;
+            })
+            .catch(error => {
+                document.getElementById('user_ip').textContent = 'Error fetching IP';
+                console.error('Error:', error);
+            });
+    </script>
+</body>
+</html>
